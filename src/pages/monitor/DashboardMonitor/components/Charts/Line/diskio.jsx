@@ -227,7 +227,7 @@ class Diskio extends Component {
 
   render() {
     return (
-      <div id="diskio" style={{width: 550, height: 300}}/>
+      <div id="diskio" style={{width: "100%", height: 300}}/>
     );
   }
 }

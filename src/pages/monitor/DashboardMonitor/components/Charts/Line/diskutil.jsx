@@ -217,7 +217,7 @@ class Diskutil extends Component {
 
   render() {
     return (
-      <div id="diskutil" style={{width: 550, height: 300}}/>
+      <div id="diskutil" style={{width: "100%", height: 300}}/>
     );
   }
 }

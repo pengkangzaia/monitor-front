@@ -217,7 +217,7 @@ class Diskserver extends Component {
 
   render() {
     return (
-      <div id="diskserver" style={{width: 550, height: 300}}/>
+      <div id="diskserver" style={{width: "100%", height: 300}}/>
     );
   }
 }

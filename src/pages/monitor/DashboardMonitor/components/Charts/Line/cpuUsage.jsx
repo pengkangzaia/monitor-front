@@ -907,7 +907,7 @@ class CpuUsage extends Component {
 
   render() {
     return (
-      <div id="cpuUsage" style={{width: 550, height: 300}}/>
+      <div id="cpuUsage" style={{width: "100%", height: 300}}/>
     );
   }
 }

@@ -227,7 +227,7 @@ class Diskkb extends Component {
 
   render() {
     return (
-      <div id="diskkb" style={{width: 550, height: 300}}/>
+      <div id="diskkb" style={{width: "100%", height: 300}}/>
     );
   }
 }

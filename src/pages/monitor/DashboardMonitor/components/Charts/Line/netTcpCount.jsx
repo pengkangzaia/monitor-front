@@ -208,7 +208,7 @@ class NetTcpCount extends Component {
 
   render() {
     return (
-      <div id="netTcpCount" style={{width: 550, height: 300}}/>
+      <div id="netTcpCount" style={{width: "100%", height: 300}}/>
     );
   }
 }

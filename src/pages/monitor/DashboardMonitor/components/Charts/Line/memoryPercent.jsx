@@ -191,7 +191,7 @@ class MemoryPercent extends Component {
 
   render() {
     return (
-      <div id="memoryPercent" style={{width: 550, height: 300}}/>
+      <div id="memoryPercent" style={{width: "100%", height: 300}}/>
     );
   }
 }

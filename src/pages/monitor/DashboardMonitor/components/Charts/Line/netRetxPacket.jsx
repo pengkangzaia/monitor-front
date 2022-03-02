@@ -218,7 +218,7 @@ class NetRetxPacket extends Component {
 
   render() {
     return (
-      <div id="netRetxPacket" style={{width: 550, height: 300}}/>
+      <div id="netRetxPacket" style={{width: "100%", height: 300}}/>
     );
   }
 }

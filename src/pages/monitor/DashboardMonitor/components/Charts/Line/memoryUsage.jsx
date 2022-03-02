@@ -192,7 +192,7 @@ class MemoryUsage extends Component {
 
   render() {
     return (
-      <div id="memoryUsage" style={{width: 550, height: 300}}/>
+      <div id="memoryUsage" style={{width: "100%", height: 300}}/>
     );
   }
 }

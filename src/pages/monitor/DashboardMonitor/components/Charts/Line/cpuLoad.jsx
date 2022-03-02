@@ -931,7 +931,7 @@ class CpuLoad extends Component {
 
   render() {
     return (
-      <div id="cpuLoad" style={{width: 550, height: 300}}/>
+      <div id="cpuLoad" style={{width: "100%", height: 300}}/>
       // <div id="cpuLoad"/>
     );
   }

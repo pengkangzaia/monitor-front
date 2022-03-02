@@ -227,7 +227,7 @@ class Diskwait extends Component {
 
   render() {
     return (
-      <div id="diskwait" style={{width: 550, height: 300}}/>
+      <div id="diskwait" style={{width: "100%", height: 300}}/>
     );
   }
 }

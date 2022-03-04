@@ -45,7 +45,7 @@ export default [
       {
         name: 'hostList',
         path: '/monitor/hostList',
-        component: './ListTableList',
+        component: './monitor/HostList',
       },
       {
         name: 'config',
@@ -67,12 +67,12 @@ export default [
       {
         name: 'config',
         path: '/alarm/config',
-        component: './ListTableList',
+        component: './monitor/HostList',
       },
       {
         name: 'history',
         path: '/alarm/history',
-        component: './ListTableList',
+        component: './monitor/HostList',
       },
     ],
   },

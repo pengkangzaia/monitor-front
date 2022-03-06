@@ -85,96 +85,6 @@ const TableList = () => {
   /** 国际化配置 */
 
   const columns = [
-    // {
-    //   title: '主机名称',
-    //   dataIndex: 'name',
-    //   tip: '规则名称是唯一的 key',
-    //   render: (dom, entity) => {
-    //     return (
-    //       <a
-    //         onClick={() => {
-    //           setCurrentRow(entity);
-    //           setShowDetail(true);
-    //         }}
-    //       >
-    //         {dom}
-    //       </a>
-    //     );
-    //   },
-    // },
-    // {
-    //   title: '描述',
-    //   dataIndex: 'desc',
-    //   valueType: 'textarea',
-    // },
-    // {
-    //   title: '服务调用次数',
-    //   dataIndex: 'callNo',
-    //   sorter: true,
-    //   hideInForm: true,
-    //   renderText: (val) => `${val}万`,
-    // },
-    // {
-    //   title: '状态',
-    //   dataIndex: 'status',
-    //   hideInForm: true,
-    //   valueEnum: {
-    //     0: {
-    //       text: '关闭',
-    //       status: 'Default',
-    //     },
-    //     1: {
-    //       text: '运行中',
-    //       status: 'Processing',
-    //     },
-    //     2: {
-    //       text: '已上线',
-    //       status: 'Success',
-    //     },
-    //     3: {
-    //       text: '异常',
-    //       status: 'Error',
-    //     },
-    //   },
-    // },
-    // {
-    //   title: '上次调度时间',
-    //   sorter: true,
-    //   dataIndex: 'updatedAt',
-    //   valueType: 'dateTime',
-    //   renderFormItem: (item, { defaultRender, ...rest }, form) => {
-    //     const status = form.getFieldValue('status');
-    //
-    //     if (`${status}` === '0') {
-    //       return false;
-    //     }
-    //
-    //     if (`${status}` === '3') {
-    //       return <Input {...rest} placeholder="请输入异常原因！" />;
-    //     }
-    //
-    //     return defaultRender(item);
-    //   },
-    // },
-    // {
-    //   title: '操作',
-    //   dataIndex: 'option',
-    //   valueType: 'option',
-    //   render: (_, record) => [
-    //     <a
-    //       key="config"
-    //       onClick={() => {
-    //         handleUpdateModalVisible(true);
-    //         setCurrentRow(record);
-    //       }}
-    //     >
-    //       配置
-    //     </a>,
-    //     <a key="subscribeAlert" href="https://procomponents.ant.design/">
-    //       订阅警报
-    //     </a>,
-    //   ],
-    // },
     {
       title: '主机名称',
       dataIndex: 'name',
@@ -204,7 +114,7 @@ const TableList = () => {
       hideInForm: true,
       valueEnum: {
         0: {
-          text: '关闭',
+          text: '已下线',
           status: 'Default',
         },
         1: {
@@ -224,7 +134,7 @@ const TableList = () => {
     {
       title: '最近探活时间',
       sorter: true,
-      dataIndex: 'updatedAt',
+      dataIndex: 'lastSurviveTime',
       valueType: 'dateTime',
       hideInSearch: true,
       renderFormItem: (item, { defaultRender, ...rest }, form) => {
@@ -261,7 +171,13 @@ const TableList = () => {
         >
           告警配置
         </a>,
-        <Link to="/monitor/dashboard">监控详情</Link>
+        <Link to={{
+          pathname: '/monitor/dashboard',
+          state: {
+            hostId: record.id,
+            hostName: record.name,
+          }
+        }}>监控详情</Link>
       ],
     },
   ];

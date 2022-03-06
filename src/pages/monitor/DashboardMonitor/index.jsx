@@ -1,6 +1,5 @@
 import {Button, Card, Col, Row, Select} from 'antd';
 import {GridContent, PageContainer} from '@ant-design/pro-layout';
-import styles from './style.less';
 import CpuUsage from "@/pages/monitor/DashboardMonitor/components/Charts/Line/cpuUsage";
 import CpuLoad from "@/pages/monitor/DashboardMonitor/components/Charts/Line/cpuLoad";
 import MemoryPercent from "@/pages/monitor/DashboardMonitor/components/Charts/Line/memoryPercent";
@@ -13,16 +12,25 @@ import Diskutil from "@/pages/monitor/DashboardMonitor/components/Charts/Line/di
 import NetRetx from "@/pages/monitor/DashboardMonitor/components/Charts/Line/netRetx";
 import NetRetxPacket from "@/pages/monitor/DashboardMonitor/components/Charts/Line/netRetxPacket";
 import NetTcpCount from "@/pages/monitor/DashboardMonitor/components/Charts/Line/netTcpCount";
+import {useLocation} from "umi";
 
 const {Option} = Select;
 
 
+
 const DashboardMonitor = () => {
+  const location = useLocation();
+  let hostName = 'vejpo-2v9f00zm';
+  let hostId = 1;
+  if (location.state !== undefined) {
+     hostName = location.state.hostName;
+     hostId = location.state.hostId;
+  }
 
   return (
     <PageContainer header={{extra:[
         <Button type={"text"}>主机名称：</Button>,
-        <Select defaultValue="lhins-2v9f00zm">
+        <Select defaultValue={hostName}>
           <Option value="主机1">lhins-2v9f00zm</Option>
           <Option value="主机2">ghbes-2v9f00zm</Option>
           <Option value="主机3">ysjoe-2v9f00zm</Option>

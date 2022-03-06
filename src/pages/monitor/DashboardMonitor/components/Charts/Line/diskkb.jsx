@@ -9,164 +9,17 @@ import 'echarts/lib/component/toolbox';
 import 'echarts/lib/component/dataZoom';
 import 'echarts/lib/component/title';
 import 'echarts/lib/component/grid';
+import {diskInfo} from "@/pages/monitor/DashboardMonitor/service";
+import * as Constant from './util';
 
 
 class Diskkb extends Component {
-  componentDidMount() {
-    const my_tooltip = {
-      trigger: 'axis',
-      axisPointer: {
-        animation: false,
-        type: 'cross',
-        lineStyle: {
-          // color: '#376df4',
-          width: 2,
-          opacity: 1
-        }
-      }
-    };
-    const my_toolbox = {
-      left: 'center',
-      feature: {
-        dataZoom: {
-          yAxisIndex: 'none'
-        },
-        restore: {},
-        saveAsImage: {},
-        magicType: {
-          type: []
-        }
-      }
-    };
-    var white = null;
-    var colors = ['#4bacc6', '#8064a2', '#9bbb59', '#c0504d'];
-    var background_color = '#ffffff';
+  async componentDidMount() {
+    let data = await diskInfo();
     // 基于准备好的dom，初始化echarts实例
     let myChart = echarts.init(document.getElementById('diskkb'));
-    let data = [{
-      "address": "http://1.15.117.64:8081",
-      "rio": 0.07,
-      "wio": 2.62,
-      "rkb": 3.91,
-      "wkb": 24.77,
-      "svctm": 0.126667,
-      "util": 0.0166667,
-      "date": "2022-02-13 21:16:22",
-      "wawait": 0.486667,
-      "rawait": 1.14333
-    }, {
-      "address": "http://1.15.117.64:8081",
-      "rio": 0.07,
-      "wio": 2.62,
-      "rkb": 3.91,
-      "wkb": 24.77,
-      "svctm": 0.126667,
-      "util": 0.0166667,
-      "date": "2022-02-13 21:16:51",
-      "wawait": 0.486667,
-      "rawait": 1.14333
-    }, {
-      "address": "http://1.15.117.64:8081",
-      "rio": 0.07,
-      "wio": 2.62,
-      "rkb": 3.91,
-      "wkb": 24.77,
-      "svctm": 0.126667,
-      "util": 0.0166667,
-      "date": "2022-02-13 21:17:21",
-      "wawait": 0.486667,
-      "rawait": 1.14333
-    }, {
-      "address": "http://1.15.117.64:8081",
-      "rio": 0.07,
-      "wio": 2.62,
-      "rkb": 3.91,
-      "wkb": 24.77,
-      "svctm": 0.126667,
-      "util": 0.0166667,
-      "date": "2022-02-13 21:17:51",
-      "wawait": 0.486667,
-      "rawait": 1.14333
-    }, {
-      "address": "http://1.15.117.64:8081",
-      "rio": 0.07,
-      "wio": 2.62,
-      "rkb": 3.91,
-      "wkb": 24.77,
-      "svctm": 0.126667,
-      "util": 0.0166667,
-      "date": "2022-02-13 21:18:25",
-      "wawait": 0.486667,
-      "rawait": 1.14333
-    }, {
-      "address": "http://1.15.117.64:8081",
-      "rio": 0.07,
-      "wio": 2.62,
-      "rkb": 3.91,
-      "wkb": 24.77,
-      "svctm": 0.126667,
-      "util": 0.0166667,
-      "date": "2022-02-13 21:18:53",
-      "wawait": 0.486667,
-      "rawait": 1.14333
-    }, {
-      "address": "http://1.15.117.64:8081",
-      "rio": 0.07,
-      "wio": 2.62,
-      "rkb": 3.91,
-      "wkb": 24.77,
-      "svctm": 0.126667,
-      "util": 0.0166667,
-      "date": "2022-02-13 21:19:23",
-      "wawait": 0.486667,
-      "rawait": 1.14333
-    }, {
-      "address": "http://1.15.117.64:8081",
-      "rio": 0.07,
-      "wio": 2.62,
-      "rkb": 3.91,
-      "wkb": 24.77,
-      "svctm": 0.126667,
-      "util": 0.0166667,
-      "date": "2022-02-13 21:19:51",
-      "wawait": 0.486667,
-      "rawait": 1.14333
-    }, {
-      "address": "http://1.15.117.64:8081",
-      "rio": 0.07,
-      "wio": 2.62,
-      "rkb": 3.91,
-      "wkb": 24.77,
-      "svctm": 0.126667,
-      "util": 0.0166667,
-      "date": "2022-02-13 21:20:25",
-      "wawait": 0.486667,
-      "rawait": 1.14333
-    }, {
-      "address": "http://1.15.117.64:8081",
-      "rio": 0.07,
-      "wio": 2.62,
-      "rkb": 3.91,
-      "wkb": 24.77,
-      "svctm": 0.126667,
-      "util": 0.0166667,
-      "date": "2022-02-13 21:20:49",
-      "wawait": 0.486667,
-      "rawait": 1.14333
-    }, {
-      "address": "http://1.15.117.64:8081",
-      "rio": 0.07,
-      "wio": 2.62,
-      "rkb": 3.91,
-      "wkb": 24.77,
-      "svctm": 0.126667,
-      "util": 0.0166667,
-      "date": "2022-02-13 21:21:19",
-      "wawait": 0.486667,
-      "rawait": 1.14333
-    }];
     myChart.setOption({
-      backgroundColor: background_color,
+      backgroundColor: Constant.background_color,
       title: {
         subtext: '单位:kb/s',
         textStyle: {
@@ -187,8 +40,8 @@ class Diskkb extends Component {
         axisLine: {lineStyle: {color: '#8392A5'}, show: true},
         splitLine: {show: false}
       },
-      tooltip: my_tooltip,
-      toolbox: my_toolbox,
+      tooltip: Constant.my_tooltip,
+      toolbox: Constant.my_toolbox,
       dataZoom: [{
         startValue: data[0].date
       }, {
@@ -197,7 +50,7 @@ class Diskkb extends Component {
       visualMap: [{
         show: false,
         inRange: {
-          color: white
+          color: Constant.white
         }
       }],
       series: [
@@ -208,7 +61,7 @@ class Diskkb extends Component {
             return item.rkb;
           }),
           lineStyle: {
-            color: colors[0]
+            color: Constant.colors[0]
           }
         },
         {
@@ -218,7 +71,7 @@ class Diskkb extends Component {
             return item.wkb;
           }),
           lineStyle: {
-            color: colors[1]
+            color: Constant.colors[1]
           }
         }]
     });

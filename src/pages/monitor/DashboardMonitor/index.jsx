@@ -48,7 +48,7 @@ const DashboardMonitor = () => {
             >
               <Card title="系统CPU利用率" bordered={false}>
                 <div>
-                  <CpuUsage/>
+                  <CpuUsage hostId={hostId}/>
                 </div>
               </Card>
             </Col>
@@ -57,7 +57,7 @@ const DashboardMonitor = () => {
             }}>
               <Card title="系统CPU负载" bordered={false}>
                 <div>
-                  <CpuLoad/>
+                  <CpuLoad hostId={hostId}/>
                 </div>
               </Card>
             </Col>
@@ -72,7 +72,7 @@ const DashboardMonitor = () => {
             >
               <Card title="内存利用率" bordered={false}>
                 <div>
-                  <MemoryPercent/>
+                  <MemoryPercent hostId={hostId}/>
                 </div>
               </Card>
             </Col>
@@ -81,7 +81,7 @@ const DashboardMonitor = () => {
             }}>
               <Card title="内存使用量" bordered={false}>
                 <div>
-                  <MemoryUsage/>
+                  <MemoryUsage hostId={hostId}/>
                 </div>
               </Card>
             </Col>
@@ -96,7 +96,7 @@ const DashboardMonitor = () => {
             >
               <Card title="磁盘IO次数" bordered={false}>
                 <div>
-                  <Diskio/>
+                  <Diskio hostId={hostId}/>
                 </div>
               </Card>
             </Col>
@@ -105,7 +105,7 @@ const DashboardMonitor = () => {
             }}>
               <Card title="磁盘IO字节数" bordered={false}>
                 <div>
-                  <Diskkb/>
+                  <Diskkb hostId={hostId}/>
                 </div>
               </Card>
             </Col>
@@ -120,7 +120,7 @@ const DashboardMonitor = () => {
             >
               <Card title="磁盘读写等待时间" bordered={false}>
                 <div>
-                  <Diskwait/>
+                  <Diskwait hostId={hostId}/>
                 </div>
               </Card>
             </Col>
@@ -129,7 +129,7 @@ const DashboardMonitor = () => {
             }}>
               <Card title="磁盘服务时间" bordered={false}>
                 <div>
-                  <Diskserver/>
+                  <Diskserver hostId={hostId}/>
                 </div>
               </Card>
             </Col>
@@ -144,7 +144,7 @@ const DashboardMonitor = () => {
             >
               <Card title="磁盘/CPU利用率" bordered={false}>
                 <div>
-                  <Diskutil/>
+                  <Diskutil hostId={hostId}/>
                 </div>
               </Card>
             </Col>
@@ -153,7 +153,7 @@ const DashboardMonitor = () => {
             }}>
               <Card title="外网带宽" bordered={false}>
                 <div>
-                  <NetRetx/>
+                  <NetRetx hostId={hostId}/>
                 </div>
               </Card>
             </Col>
@@ -168,7 +168,7 @@ const DashboardMonitor = () => {
             >
               <Card title="外网出入包量" bordered={false}>
                 <div>
-                  <NetRetxPacket/>
+                  <NetRetxPacket hostId={hostId}/>
                 </div>
               </Card>
             </Col>
@@ -177,7 +177,7 @@ const DashboardMonitor = () => {
             }}>
               <Card title="TCP连接数" bordered={false}>
                 <div>
-                  <NetTcpCount/>
+                  <NetTcpCount hostId={hostId}/>
                 </div>
               </Card>
             </Col>

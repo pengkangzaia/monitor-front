@@ -14,7 +14,9 @@ import {diskInfo} from "@/pages/monitor/DashboardMonitor/service";
 
 class Diskwait extends Component {
   async componentDidMount() {
-    let data = await diskInfo();
+    const hostId = this.props.hostId;
+    const params = {id : hostId};
+    let data = await diskInfo(params);
     // 基于准备好的dom，初始化echarts实例
     let myChart = echarts.init(document.getElementById('diskwait'));
     myChart.setOption({

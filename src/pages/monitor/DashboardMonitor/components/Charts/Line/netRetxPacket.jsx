@@ -15,7 +15,9 @@ import {netInfo} from "@/pages/monitor/DashboardMonitor/service";
 
 class NetRetxPacket extends Component {
   async componentDidMount() {
-    let data = await netInfo();
+    const hostId = this.props.hostId;
+    const params = {id : hostId};
+    let data = await netInfo(params);
     // 基于准备好的dom，初始化echarts实例
     let myChart = echarts.init(document.getElementById('netRetxPacket'));
     myChart.setOption({

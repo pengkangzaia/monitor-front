@@ -16,8 +16,10 @@ import * as Constant from './util';
 class CpuLoad extends Component {
   async componentDidMount() {
     // 基于准备好的dom，初始化echarts实例
+    const hostId = this.props.hostId;
+    const params = {id : hostId};
+    let data = await cpuInfo(params);
     let myChart = echarts.init(document.getElementById('cpuLoad'));
-    let data = await cpuInfo()
 
     myChart.setOption({
       backgroundColor: '#ffffff',

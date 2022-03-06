@@ -12,18 +12,26 @@ export async function queryTestData() {
   });
 }
 
-export async function cpuInfo() {
-  return request('/api/cpu')
+export async function cpuInfo(params) {
+  return request('/api/cpu', {
+    params: params
+  })
 }
 
-export async function diskInfo() {
-  return request('/api/disk')
+export async function diskInfo(params) {
+  return request('/api/disk', {
+    params: params
+  })
 }
 
-export async function memoryInfo() {
-  return request('/api/memory')
+export async function memoryInfo(params) {
+  return request('/api/memory', {
+    params: params
+  })
 }
 
-export async function netInfo() {
-  return request('/api/net')
+export async function netInfo(params) {
+  return request('/api/net', {
+    params: params
+  })
 }

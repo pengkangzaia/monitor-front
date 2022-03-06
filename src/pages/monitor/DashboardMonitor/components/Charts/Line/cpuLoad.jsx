@@ -14,6 +14,7 @@ import * as Constant from './util';
 
 
 class CpuLoad extends Component {
+
   async componentDidMount() {
     // 基于准备好的dom，初始化echarts实例
     const hostId = this.props.hostId;

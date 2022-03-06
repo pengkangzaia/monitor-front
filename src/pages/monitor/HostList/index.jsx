@@ -162,15 +162,23 @@ const TableList = () => {
       dataIndex: 'option',
       valueType: 'option',
       render: (_, record) => [
-        <a
-          key="config"
-          onClick={() => {
-            handleUpdateModalVisible(true);
-            setCurrentRow(record);
-          }}
-        >
-          告警配置
-        </a>,
+        // <a
+        //   key="config"
+        //   onClick={() => {
+        //     handleUpdateModalVisible(true);
+        //     setCurrentRow(record);
+        //   }}
+        // >
+        //   告警配置
+        // </a>,
+        <Link to={{
+          pathname: '/monitor/config',
+          state: {
+            hostId: record.id,
+            hostName: record.name,
+          }
+        }}>告警配置 </Link>,
+
         <Link to={{
           pathname: '/monitor/dashboard',
           state: {

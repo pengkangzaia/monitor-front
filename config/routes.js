@@ -50,6 +50,7 @@ export default [
       {
         name: 'config',
         path: '/monitor/config',
+        hideInMenu: true,
         component: './monitor/FormBasicForm',
       },
       {

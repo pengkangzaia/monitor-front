@@ -3,14 +3,11 @@ import ProForm, {
   ProFormDateRangePicker,
   ProFormDependency,
   ProFormDigit,
-  ProFormRadio,
   ProFormSelect,
   ProFormText,
   ProFormTextArea,
-  ProFormList, ProFormCheckbox,
 } from '@ant-design/pro-form';
 import {useRequest} from 'umi';
-import type {FC} from 'react';
 import {PageContainer} from '@ant-design/pro-layout';
 import {fakeSubmitForm} from './service';
 import {Fragment, useState} from "react";
@@ -20,7 +17,7 @@ import {MinusCircleOutlined, PlusOutlined} from '@ant-design/icons';
 const {Option} = Select;
 
 
-const FormBasicForm: FC<Record<string, any>> = () => {
+const FormBasicForm = () => {
 
   const [componentVisible, setComponentVisible] = useState(false)
 
@@ -31,7 +28,7 @@ const FormBasicForm: FC<Record<string, any>> = () => {
     },
   });
 
-  const onFinish = async (values: Record<string, any>) => {
+  const onFinish = async (values) => {
     run(values);
     console.log('Received values of form:', values);
   };
@@ -144,7 +141,7 @@ const FormBasicForm: FC<Record<string, any>> = () => {
                           </Space>
                         ))}
                         <Form.Item>
-                          <a type="text" onClick={() => add()} >
+                          <a type="text" onClick={() => add()}>
                             添加指标
                           </a>
                         </Form.Item>

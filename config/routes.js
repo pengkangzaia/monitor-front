@@ -79,7 +79,7 @@ export default [
   },
   {
     path: '/',
-    redirect: '/welcome',
+    redirect: '/monitor/hostList',
   },
   {
     component: './404',
